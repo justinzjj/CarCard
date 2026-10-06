@@ -11,6 +11,10 @@ usage() {
 run_static_checks() {
     local actionlint_bin
     local test_dir
+    local gc_sections="-Wl,--gc-sections"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        gc_sections="-Wl,-dead_strip"
+    fi
 
     python3 tools/check_repo.py
 
@@ -32,6 +36,24 @@ run_static_checks() {
         tests/test_demo_navigation.c main/demo_navigation.c \
         -o "${test_dir}/test_demo_navigation"
     "${test_dir}/test_demo_navigation"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Imain \
+        tests/test_carcard_model.c main/carcard_model.c \
+        -o "${test_dir}/test_carcard_model"
+    "${test_dir}/test_carcard_model"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror \
+        -Itests/bsp_stubs -Icomponents/bsp/include -Imain \
+        tests/test_carcard_input.c main/carcard_input.c main/carcard_model.c \
+        -o "${test_dir}/test_carcard_input"
+    "${test_dir}/test_carcard_input"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror \
+        -Itests/bsp_stubs -Icomponents/bsp/include -Imain \
+        tests/test_carcard_idle.c main/carcard_idle.c main/carcard_input.c main/carcard_model.c \
+        -o "${test_dir}/test_carcard_idle"
+    "${test_dir}/test_carcard_idle"
+    "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Itests/carcard_store_stubs -Imain \
+        tests/test_carcard_store.c main/carcard_store.c \
+        -o "${test_dir}/test_carcard_store"
+    "${test_dir}/test_carcard_store"
     "${CC:-cc}" -std=c11 -Wall -Wextra -Werror -Icomponents/bsp/src \
         tests/test_bsp_display_rounding.c components/bsp/src/bsp_display_rounding.c \
         -o "${test_dir}/test_bsp_display_rounding"
@@ -57,7 +79,7 @@ run_static_checks() {
     for demo in audio low_power ble wifi; do
         "${CC:-cc}" -std=c11 -Wall -Wextra -Werror \
             -ffunction-sections -fdata-sections -Itests/demo_stubs -Imain \
-            "tests/test_demo_${demo}_runtime.c" -Wl,--gc-sections \
+            "tests/test_demo_${demo}_runtime.c" "${gc_sections}" \
             -o "${test_dir}/test_demo_${demo}_runtime"
         "${test_dir}/test_demo_${demo}_runtime"
     done
@@ -96,11 +118,18 @@ run_firmware_checks() (
     echo "Firmware build: PASS"
 )
 
+run_carcard_preview_checks() {
+    cmake -S tests/carcard_preview -B build/carcard-preview -G Ninja
+    cmake --build build/carcard-preview --parallel 4
+    (cd build/carcard-preview && ./carcard_preview)
+}
+
 cd "${repo_root}"
 case "${mode}" in
     --all)
         run_static_checks
         run_firmware_checks
+        run_carcard_preview_checks
         ;;
     --static)
         run_static_checks

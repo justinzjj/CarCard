@@ -33,6 +33,9 @@
 **FoloToy AI Passport** 是开放的可穿戴 AI 平台，人人都可以动手改造、自由创作。
 从一个简单想法开始，打造专属体验——无论是随身伙伴、小工具、游戏，还是任何新点子。
 
+本工作区实现[CarCard：R36 与 Polo 车库](apps/carcard.zh_CN.md)，
+为银色 R36 旅行版和银色 Polo 1.4 手动两厢提供离线像素车图、车辆参数和独立可修改的里程。
+
 <p align="center">
   <img src="../assets/images/home.jpg" alt="FoloToy AI Passport 可穿戴设备的正面、侧面和背面展示。" width="100%">
 </p>

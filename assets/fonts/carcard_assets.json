@@ -1,0 +1,25 @@
+{
+  "font_converter": "lv_font_conv 1.5.3",
+  "font_glyphs": 179,
+  "sizes": [
+    14,
+    16,
+    20
+  ],
+  "format": "4 bpp, uncompressed",
+  "image_dimensions": [
+    216,
+    100
+  ],
+  "image_format": "RGB565 little-endian",
+  "images": {
+    "r36": {
+      "flash_bytes": 43200,
+      "source_image_sha256": "471019009c9ebd86e103737060a222a544e71aae32b6400b3ddd06a657c1626a"
+    },
+    "polo": {
+      "flash_bytes": 43200,
+      "source_image_sha256": "c2f151102fb8536fd073e19b862f0a16d5df7979aac3321aa0c1a8d7fdbb3792"
+    }
+  }
+}

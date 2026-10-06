@@ -1,16 +1,15 @@
 idf_component_register(
     SRCS "main.c"
-         "demo_navigation.c"
-         "ui_pixel.c"
-         "ui_pixel_math.c"
-         "demo_display.c"
-         "demo_button.c"
-         "demo_audio.c"
-         "demo_battery.c"
-         "demo_radio.c"
-         "demo_wifi.c"
-         "demo_ble.c"
-         "demo_low_power.c"
-    INCLUDE_DIRS "."
-    REQUIRES bsp bt esp_event esp_hw_support esp_netif esp_timer esp_wifi nvs_flash
+         "carcard_model.c"
+         "carcard_input.c"
+         "carcard_idle.c"
+         "carcard_store.c"
+         "carcard_ui.c"
+         "../assets/fonts/carcard_font_14.c"
+         "../assets/fonts/carcard_font_16.c"
+         "../assets/fonts/carcard_font_20.c"
+         "../assets/images/carcard_r36.c"
+         "../assets/images/carcard_polo.c"
+    INCLUDE_DIRS "." "../assets/fonts"
+    REQUIRES bsp esp_timer nvs_flash
 )

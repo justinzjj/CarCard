@@ -34,6 +34,10 @@
 remix, and create. Start with a simple idea, build your own experience, and make
 it anything—from a pocket companion to something no one has imagined yet.
 
+This checkout implements [CarCard: R36 and Polo garage](apps/carcard.md), an
+offline garage for a silver R36 Variant and silver Polo 1.4 manual hatchback,
+with pixel illustrations, vehicle parameters and independent editable mileage.
+
 <p align="center">
   <img src="../assets/images/home.jpg" alt="FoloToy AI Passport wearable device shown from the front, side, and back." width="100%">
 </p>

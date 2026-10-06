@@ -10,6 +10,15 @@
 
 可复用的字库文件与生成的字库源码放在 `fonts/`。
 
+CarCard 使用 `fonts/CarCard-SansSC.otf`，它是
+[Noto Sans CJK SC Regular](https://github.com/notofonts/noto-cjk/tree/main/Sans)
+改名后的 179 字形子集，按 `fonts/OFL.txt` 授权再分发。
+应用编译并显式绑定到标签的资源为未压缩 4-bpp 的 `carcard_font_14.c`、
+`carcard_font_16.c`、`carcard_font_20.c`。字符清单位于 `fonts/carcard_glyphs.txt`，
+启动时通过 LVGL 检查 `fonts/carcard_glyphs.h` 中所有码点。
+使用 `python tools/generate_carcard_assets.py --converter <lv_font_conv-1.5.3>` 生成；
+扩展字符集时通过 `--font` 传入完整原始字体。
+
 - 命名要能反映字族、字重、字级与格式。
 - 记录来源、许可、字符范围、转换命令与目标放置路径。
 - 添加字库前评估 Flash 与内部 RAM 影响；ESP32-C3 无 PSRAM。
@@ -21,6 +30,10 @@
 
 | 文件 | 尺寸与格式 | 用途与来源 |
 | --- | --- | --- |
+| `images/r36-silver-variant-source.png` | 1836 × 857，PNG RGB | 于 2026-10-06 使用内置图像工具生成的银色原厂 R36 旅行版像素插画，提示词保存在 `images/r36-prompt.txt`。它是 AI 插画，并非大众产品照片或经过精度认证的图纸。 |
+| `images/r36-silver-variant.png` / `images/carcard_r36.c` | 216 × 100，PNG / 小端 RGB565 | 车辆名片主图；由 `tools/generate_carcard_assets.py` 以最近邻方式编码，逻辑网格为 108 × 50。C 位图占用 Flash 43,200 字节。 |
+| `images/polo-silver-9n3-source.png` | 1843 × 853，PNG RGB | 银色 Polo 1.4 手动四侧门两厢，按暂定的 9N3 代号绘制；于 2026-10-06 使用内置图像工具生成。提示词保存在 `images/polo-prompt.txt`。为 AI 插画，并非车主实车照片；年份及代号仍待确认。 |
+| `images/polo-silver-9n3.png` / `images/carcard_polo.c` | 216 × 100，PNG / 小端 RGB565 | Polo 车库名片，复用 R36 的生成脚本及 108 × 50 逻辑网格，占用 Flash 43,200 字节，各车使用独立图像描述符。 |
 | [`images/home.jpg`](images/home.jpg) | 3840 × 2160，JPEG | 嵌入中英文项目 README 的产品主图，突出 AI Passport 产品形象与开放、人人可创作的理念。 |
 | [`images/readme-hardware-specs.png`](images/readme-hardware-specs.png) | 2172 × 724，PNG RGBA | 保留为可选技术参考图，不再用于首页主视觉。于 2026-09-17 使用内置图像生成工具为本仓库生成；已根据文档中的硬件能力契约核对图中的六项标签与参数。 |
 | [`images/logo-wordmark.png`](images/logo-wordmark.png) | 1648 × 336，PNG RGBA | 从仓库原始 `images/logo.png` 中精确裁切并去除背景的黑色字标；用于中英文项目 README 的浅色主题。 |
