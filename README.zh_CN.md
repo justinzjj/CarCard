@@ -6,6 +6,9 @@
 [FoloToy/ai-passport](https://gitee.com/FoloToy/ai-passport) 项目。
 应用维护在 `feature/carcard` 分支，复用原项目 BSP。
 
+当前版本暂时仅内置作者已有的 R36 和 Polo，尚不支持在应用中新增其他车型。
+下一版计划加入常见车辆信息；这些资料尚未包含在本次版本中。
+
 <p align="center">
   <img src="assets/images/r36-silver-variant.png" alt="银色大众 R36 旅行版像素插画" width="324">
   <img src="assets/images/polo-silver-9n3.png" alt="银色大众 Polo 两厢像素插画" width="324">

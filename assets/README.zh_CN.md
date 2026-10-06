@@ -32,8 +32,9 @@ CarCard 使用 `fonts/CarCard-SansSC.otf`，它是
 | --- | --- | --- |
 | `images/r36-silver-variant-source.png` | 1836 × 857，PNG RGB | 于 2026-10-06 使用内置图像工具生成的银色原厂 R36 旅行版像素插画，提示词保存在 `images/r36-prompt.txt`。它是 AI 插画，并非大众产品照片或经过精度认证的图纸。 |
 | `images/r36-silver-variant.png` / `images/carcard_r36.c` | 216 × 100，PNG / 小端 RGB565 | 车辆名片主图；由 `tools/generate_carcard_assets.py` 以最近邻方式编码，逻辑网格为 108 × 50。C 位图占用 Flash 43,200 字节。 |
-| `images/polo-silver-9n3-source.png` | 1843 × 853，PNG RGB | 银色 Polo 1.4 手动四侧门两厢，按暂定的 9N3 代号绘制；于 2026-10-06 使用内置图像工具生成。提示词保存在 `images/polo-prompt.txt`。为 AI 插画，并非车主实车照片；年份及代号仍待确认。 |
+| `images/polo-silver-9n3-source.png` | 1843 × 853，PNG RGB | 银色 Polo 1.4 手动四侧门两厢，于 2026-10-06 使用内置图像工具生成。提示词保存在 `images/polo-prompt.txt`。车主后续确认年份为 2008，与 9N3 插画一致；并非车主实车照片。 |
 | `images/polo-silver-9n3.png` / `images/carcard_polo.c` | 216 × 100，PNG / 小端 RGB565 | Polo 车库名片，复用 R36 的生成脚本及 108 × 50 逻辑网格，占用 Flash 43,200 字节，各车使用独立图像描述符。 |
+| `images/carcard-community-cover.png` | 1086 × 1448，PNG，竖版 3:4 | 2026-10-06 使用内置图像工具、以两辆车的像素图为参考生成的完整社区封面；提示词保存在 `images/carcard-community-cover-prompt.txt`。未转换，复制后在实际上传路径打开检查。标明示意插画，并非实机截图，不含真实车牌。 |
 | [`images/home.jpg`](images/home.jpg) | 3840 × 2160，JPEG | 嵌入中英文项目 README 的产品主图，突出 AI Passport 产品形象与开放、人人可创作的理念。 |
 | [`images/readme-hardware-specs.png`](images/readme-hardware-specs.png) | 2172 × 724，PNG RGBA | 保留为可选技术参考图，不再用于首页主视觉。于 2026-09-17 使用内置图像生成工具为本仓库生成；已根据文档中的硬件能力契约核对图中的六项标签与参数。 |
 | [`images/logo-wordmark.png`](images/logo-wordmark.png) | 1648 × 336，PNG RGBA | 从仓库原始 `images/logo.png` 中精确裁切并去除背景的黑色字标；用于中英文项目 README 的浅色主题。 |

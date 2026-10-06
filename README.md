@@ -6,6 +6,10 @@ An offline, pixel-art garage for **FoloToy AI Passport**, based on the full
 [FoloToy/ai-passport](https://gitee.com/FoloToy/ai-passport) project.
 This application is maintained on `feature/carcard` and reuses the board BSP.
 
+This first version contains only the creator's existing R36 and Polo; users
+cannot add other models in the app yet. The next version is planned to include
+information for commonly used vehicles. That catalog is not part of this release.
+
 <p align="center">
   <img src="assets/images/r36-silver-variant.png" alt="Silver Volkswagen R36 Variant pixel illustration" width="324">
   <img src="assets/images/polo-silver-9n3.png" alt="Silver Volkswagen Polo hatchback pixel illustration" width="324">

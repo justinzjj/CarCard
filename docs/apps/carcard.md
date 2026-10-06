@@ -12,6 +12,10 @@ engine code. The parameter page displays the year, family, power and gear count;
 torque is recorded here, outside the existing six-row parameter screen.
 Development branch: `feature/carcard`, based on upstream `33d3d1d`.
 
+Version scope: only the creator's existing R36 and Polo are included. The app
+does not support adding other models. A common-vehicle information catalog is
+planned for the next version and is not implemented in this release.
+
 ## Interface and controls
 
 The independently designed interface uses a dark garage palette, a generated pixel

@@ -6,6 +6,8 @@
 #define CARCARD_POLO_DEFAULT_KM 120000u
 #define CARCARD_MAX_KM 999999u
 typedef enum { CARCARD_R36, CARCARD_POLO, CARCARD_VEHICLE_COUNT } carcard_vehicle_t;
+/* This release has only the owner's R36 and Polo; adding vehicles is not exposed.
+ * A common-vehicle information catalog is planned for the next version. */
 typedef enum { CARCARD_UP, CARCARD_DOWN, CARCARD_OK, CARCARD_HOLD_OK } carcard_key_t;
 typedef enum { CARCARD_REDRAW, CARCARD_SAVE } carcard_action_t;
 typedef struct {
